@@ -1,7 +1,7 @@
 import React from "react";
 
 const ArticleCard = (props) => {
-    const {title, author, image, summary, category, rank} = props.article
+  const { title, author, image, summary, category, rank } = props.article;
   console.log(props);
 
   return (
@@ -9,7 +9,7 @@ const ArticleCard = (props) => {
       {props.article ? (
         <div className="article-card">
           <h1>{title}</h1>
-          
+
           <h3>Author: {author}</h3>
           <img className="image" src={image}></img>
           <div className="summary">
