@@ -1,8 +1,9 @@
 //async validations?
 import React, {useState} from 'react'
 import axios from 'axios'
-import {Link, useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
+import {StyledSignUp} from './styles/StyledSignUp'
 
 const LoginPage = () => {
     const { register, handleSubmit, errors, reset, formState } = 
@@ -21,8 +22,6 @@ const LoginPage = () => {
         postNewUser(currentUser)
         reset()
     };
-
-    const history = useHistory()
 
     const postNewUser = newUser => {
         axios
@@ -44,37 +43,38 @@ const LoginPage = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <h2>Login</h2>
-            <div>
-                {error ? <p>The username and/or password is not valid</p> : null}
-                <input 
-                    type="text"
-                    placeholder="Username" 
-                    name="username" 
-                    ref={register({
-                        required: true, 
-                        minLength: 4})} 
-                />
+        <StyledSignUp onSubmit={handleSubmit(onSubmit)}>
+            <div className='mainBody'>
+                <div className='welcome'>
+                    <h1>Your Articles Await...</h1>
+                </div>
+                <div className='form'>
+                    <h2>Login</h2>            
+                    {error ? <p>The username and/or password is not valid</p> : null}
+                    <input 
+                        type="text"
+                        placeholder="Username" 
+                        name="username" 
+                        ref={register({
+                            required: true, 
+                            minLength: 4})} 
+                    />                
+                    <input 
+                        type="password"
+                        placeholder="Password" 
+                        name="password" 
+                        ref={register({required: true, minLength: 6})} 
+                    />
+                    {errors.password && <p className='errorMessage'>*Password must be a minimum of 6 characters</p>}                
+                    <input 
+                        type="submit" 
+                        value="Sign In" 
+                        disabled={!formState.isValid}
+                    />                
+                    <Link to='/SignUpPage'>Don't have an account?</Link>            
+                    </div>
             </div>
-            <div>
-                <input 
-                    type="password"
-                    placeholder="Password" 
-                    name="password" 
-                    ref={register({required: true, minLength: 6})} 
-                />
-                {errors.password && <p className='errorMessage'>*Password must be a minimum of 6 characters</p>}
-            </div>
-            <div>
-                <input 
-                    type="submit" 
-                    value="Sign In" 
-                    disabled={!formState.isValid}
-                />
-            </div>
-            <Link to='/SignUpPage'>Don't have an account?</Link>
-        </form>
+        </StyledSignUp>
     )
 }
 
