@@ -29,7 +29,7 @@ export const SignUpPage = () => {
             .post('https://pintereach-backend-ajg.herokuapp.com/users/signup', newUser)
             .then(res => {
                 console.log("res data", res.data)
-                history.push('/LoginPage')
+                history.push('/')
             })
             .catch(err => {
                 console.log(err)
@@ -45,7 +45,7 @@ export const SignUpPage = () => {
                 <div className='welcome'>
                     <h1>Get Started with Pintereach.</h1>
                 </div>
-                <div className='form'>
+                <form className='form'>
                     <h2>Sign Up</h2>                
                     {error ? <p>The username already exists.</p> : null}
                     <input 
@@ -71,8 +71,8 @@ export const SignUpPage = () => {
                         value="Sign Up" 
                         disabled={!formState.isValid}
                     />                    
-                    <Link to='/LoginPage'>Already have an account?</Link>
-                </div>
+                    <Link to='/'>Already have an account?</Link>
+                </form>
         </div>
         </StyledSignUp>
     )

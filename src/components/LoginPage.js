@@ -48,7 +48,7 @@ const LoginPage = () => {
                 <div className='welcome'>
                     <h1>Your Articles Await...</h1>
                 </div>
-                <div className='form'>
+                <form className='form'>
                     <h2>Login</h2>            
                     {error ? <p>The username and/or password is not valid</p> : null}
                     <input 
@@ -57,7 +57,7 @@ const LoginPage = () => {
                         name="username" 
                         ref={register({
                             required: true, 
-                            minLength: 4})} 
+                            })} 
                     />                
                     <input 
                         type="password"
@@ -71,8 +71,8 @@ const LoginPage = () => {
                         value="Sign In" 
                         disabled={!formState.isValid}
                     />                
-                    <Link to='/SignUpPage'>Don't have an account?</Link>            
-                    </div>
+                    <Link to='/signup'>Don't have an account?</Link>            
+                    </form>
             </div>
         </StyledSignUp>
     )

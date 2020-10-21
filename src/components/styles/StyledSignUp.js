@@ -48,7 +48,7 @@ export const StyledSignUp = styled.div`
         position: absolute;
     }
 
-    .mainBody div{
+    .mainBody div, form{
         display: flex;
         flex-direction: column;
         align-items: center;
