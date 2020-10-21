@@ -34,6 +34,10 @@ export const StyledSignUp = styled.div`
         border-bottom: 2px solid #828282;
         border-bottom-left-radius: 50% 6%;
         border-bottom-right-radius: 50% 6%;
+
+        @media (max-width: 1000px){
+            flex-direction:column;
+        }
     }
 
     &::after{
@@ -52,6 +56,10 @@ export const StyledSignUp = styled.div`
 
     .welcome{
         width: 40%;
+
+        @media (max-width: 1000px){
+            width: 80%;
+        }
     }
     
     h1{
@@ -74,7 +82,7 @@ export const StyledSignUp = styled.div`
 
     .form{
         background: white;
-        width: 20%;
+        /* width: 10rem; */
         border-radius: 10px;
         border: 2px solid #eeeeee;
         display: flex;
