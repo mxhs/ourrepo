@@ -565,6 +565,8 @@ button.primary:active,
   background-color: #3089e2;
 }
 
+/* Form */
+
 form {
   margin: 0 0 2em 0;
 }
@@ -1160,6 +1162,65 @@ ul.actions.fit.stacked {
   ul.actions:not(.fixed) li button.icon:before,
   ul.actions:not(.fixed) li .button.icon:before {
     margin-left: -0.5em;
+  }
+}
+
+section.special,
+article.special {
+  text-align: center;
+}
+
+header p {
+  position: relative;
+  margin: 0 0 1.5em 0;
+}
+
+@media screen and (max-width: 736px) {
+  header p br {
+    display: none;
+  }
+}
+
+header h2 + p {
+  font-size: 1.25em;
+  margin-top: -0.5em;
+  line-height: 1.5em;
+}
+
+header h3 + p {
+  font-size: 1.1em;
+  margin-top: -0.25em;
+  line-height: 1.5em;
+}
+
+header h4 + p,
+header h5 + p,
+header h6 + p {
+  font-size: 0.9em;
+  margin-top: -0.6em;
+  line-height: 1.5em;
+}
+
+header.major {
+  margin: 0 0 2.5em 0;
+  text-align: center;
+}
+
+header.major:after {
+  content: "";
+  border-bottom: solid 2px #e6e6e6;
+  display: block;
+  width: 4em;
+  margin: 2em auto 0 auto;
+}
+
+@media screen and (max-width: 736px) {
+  header.major {
+    margin: 0 0 2em 0;
+  }
+
+  header.major p {
+    font-size: 1em;
   }
 }
 
