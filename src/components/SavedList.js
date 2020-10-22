@@ -2,6 +2,37 @@ import React, { useEffect } from "react";
 import { rankArticle, deleteArticle } from "../store/actions";
 import { connect } from "react-redux";
 
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
+
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, rgba(236,200,246,0.60) 15%, rgba(70,110,229,0.45) 70%)',
+    maxWidth: 345,
+    minHeight:550,
+    maxHeight: 550,
+    marginBottom:20,
+    padding:30,
+    boxShadow: '0 3px 5px 4px rgba(103, 128, 159, 1)'
+  },
+  media: {
+    height: 250,
+  },
+  action:{
+    background: 'linear-gradient(45deg, rgba(219,218,222,0.15) 14%, rgba(103,128,159,0.15) 70%)',
+    borderRadius: 12,
+    padding:1,
+    minHeight:550,
+  }
+});
+
 const object =
     {
         "id": 0,
@@ -14,56 +45,72 @@ const object =
 };
 
 function SavedList(props) {
+  const classes = useStyles();
   const { rankArticle, deleteArticle, savedArticles } = props;
 
-  const onClick = (id) =>  {
+  const deleteCard = (id) =>  {
     deleteArticle(id);
     // console.log(saveArticle);
   };
-
-  const rankChange = ( article ) => {
+  const rankUp = ( article ) => {
     //   console.log(tempHolder)
-    object.rank +=1
-      rankArticle(article.id, JSON.stringify(article))
-
+    rankArticle(article.id,article.rank+1)
+  } 
+  const rankDown = ( article ) => {
+    //   console.log(tempHolder)
+    rankArticle(article.id,article.rank-1)
   }
 
+
   return (
-    <div className="saved-list">
+    <div className="articlecards">
       {savedArticles ? (
         savedArticles.map((article) => (
-          <div className="article-card">
-            <h1>{article.title}</h1>
-
-            <h3>Author: {article.author}</h3>
-            <img className="image" src={article.image}></img>
-            <div className="summary">
-              <p>Summary: {article.summary}</p>
-            </div>
-            <div className="category">
-              <p>Category: {article.category}</p>
-            </div>
-            <div className="rank">
-              <p>Rank: {article.rank}</p>
-            </div>
-            <div>
-            <button className="delete-btn" onClick={() => rankChange(article)}> 
-            {/* why does this need an arrow function */}
-              Edit Rank
-            </button>
-            <button className="delete-btn" onClick={() => onClick(article.id)}> 
-            {/* why does this need an arrow function */}
-              Delete
-            </button>
-            </div>
-          </div>
+      <Card className={classes.root}>
+      <CardActionArea className={classes.action}>
+        <Typography gutterBottom variant="h4" component="h2">
+        {article.title}
+          </Typography>
+        <CardMedia
+          className={classes.media}
+          image={article.image}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+          Author: {article.author}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          {article.summary}
+          </Typography> 
+          <Typography variant="h6" color="textSecondary" component="p">
+          Rank: {article.rank}
+          <div className='btn'>
+          <Button size="large" variant='outlined' color="primary"  onClick={() => rankUp(article)} >
+        Rank +
+        </Button> <Button size="large" variant='outlined' color="primary"  onClick={() => rankDown(article)} >
+        Rank -
+        </Button><Button size="large" variant='outlined' color="primary"  onClick={() => deleteCard(article.id)} >
+        Delete
+        </Button>
+        </div>
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        </CardActions>
+        </Card>
+           
         ))
       ) : (
         <p>Loading...</p>
       )}
+      
+
     </div>
   );
 }
+
+
 
 const mapStateToProps = (state) => {
   return {

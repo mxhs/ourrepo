@@ -16,12 +16,18 @@ export const fetchArticles = () => (dispatch) => {
 
 
 export const rankArticle = (id, obj) => (dispatch) => {
-    console.log('RANK ARTICLE',obj['rank'], 'this is id', id)
+    console.log("what i sent to ranked", obj, 'this is id', id)
   axiosWithAuth()
-    .put(`${baseUrl}edit_articles/3`, obj['rank'])
+    .put(`${baseUrl}edit_articles/${id}`, {"rank":obj})
     .then((res) => {
         console.log('RANKED GIVE',res.data.updatedList)
-        dispatch({ type: RANK_ARTICLE, payload: res.data.updatedList[id - 1] });
+        dispatch({ type: RANK_ARTICLE, payload: res.data})
+        axiosWithAuth()
+        .get(`${baseUrl}saved_articles/`)
+        .then((res) => {
+          console.log("New Saved List from ranked",res.data.data)
+                 dispatch({ type: SAVE_ARTICLE, payload: res.data.data });
+        });
     })
     .catch((err) => {
       console.log(err);

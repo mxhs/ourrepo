@@ -5,35 +5,13 @@ import { DELETE_ARTICLE } from "../actions";
 let initialState = {
   articles: [
     {
-      id: 0,
-      title: "",
-      author: "",
-      summary: "",
-      image: "https://picsum.photos/seed/picsum/200/300",
-      category: "",
-      rank: 0,
-    },
-    {
-      id: 3,
-      title: "",
-      author: "",
-      summary: "",
-      image: "https://picsum.photos/seed/picsum/200/300",
-      category: "",
-      rank: 4,
-    },
+    }
   ], // Holds all articles in no order
   isLoading: false,
   error: "",
   savedArticles: [
     {
-      id: 1,
-      title: "",
-      author: "",
-      summary: "",
-      image: "https://picsum.photos/seed/picsum/200/300",
-      category: "",
-      rank: 0,
+     
     },
   ], //Holds users saved articles
 };
@@ -44,16 +22,15 @@ export const mainReducer = (state = initialState, action) => {
     case RANK_ARTICLE:
       //Edits the article's rank and saves it to state of all articles and if any
       // are in the saved list it will update them there too
-      let savedTemp = state.savedArticles.map((article) => {
-        if (action.payload.id === article.id) {
-          return (article = action.payload);
-        } else {
-          return article;
-        }
-      });
+      // let savedTemp = state.savedArticles.map((article) => {
+      //   if (action.payload.id === article.id) {
+      //     return (article = action.payload);
+      //   } else {
+      //     return article;
+      //   }
+      // });
       return {
-        ...state,
-        savedArticles: savedTemp,
+        ...state
       };
     case DELETE_ARTICLE:
       //Deletes the article and removes from state of all articles and if any
@@ -61,7 +38,7 @@ export const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
-        //if its inside saved we need to update and return new savedartciles list
+        //if its inside saved we need to update and return new saved articles list
       };
     case SAVE_ARTICLE:
       //Updates the state of saved articles in the server and on the local state

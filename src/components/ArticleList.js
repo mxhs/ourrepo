@@ -5,28 +5,16 @@ import { useHistory } from "react-router-dom";
 import SavedList from "./SavedList";
 
 function ArticleList(props) {
-  const { articles, setSavedList, savedList } = props;
-  const history = useHistory();
+  const { articles, } = props;
 
-  //   const saveArticle = (article) => {
-  //     setSavedList(article);
-  //   console.log(savedList)
-  // };
-
-  //   console.log(setSavedList);
   return (
-    <div className="article-list">
+    <div className="articlecards">
       {articles
         ? articles.map((article) => (
             <div>
               <ArticleCard
                 article={article}
-                // setSavedList={setSavedList}
-                // savedList={savedList}
               />
-              {/* <div className="save-btn" onClick={saveArticle(article)}>
-                Save
-              </div> */}
             </div>
           ))
         : "loading.."}
