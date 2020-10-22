@@ -1,7 +1,7 @@
 //async validations?
 import React, {useState} from 'react'
 import axios from 'axios'
-import {Link, useHistory} from 'react-router-dom'
+import {Link, useHistory, Redirect} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import {StyledSignUp} from './styles/StyledSignUp'
 
@@ -32,7 +32,7 @@ const LoginPage = () => {
             .then(res => {
                 const token = res.data.token
                 localStorage.setItem('token', token)
-                history.push('https://pintreachers-82npkwcbi.vercel.app/')
+                history.push('/success')
             })
             .catch(err => {
                 console.log(err)

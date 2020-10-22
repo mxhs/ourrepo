@@ -15,6 +15,12 @@ function App() {
       <Route exact path = '/'>
         <LoginPage />
       </Route>
+      <Route path = '/success' 
+        render = {() => (
+          window.location = "https://pintreachers-git-article-card.pintereachers.vercel.app/"
+        )}
+      >
+      </Route>
     </div>
   );
 }
