@@ -1,7 +1,7 @@
 //async validations?
 import React, {useState} from 'react'
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import {StyledSignUp} from './styles/StyledSignUp'
 
@@ -23,23 +23,21 @@ const LoginPage = () => {
         reset()
     };
 
+    const history = useHistory()
+
     const postNewUser = newUser => {
         axios
             .post('https://pintereach-backend-ajg.herokuapp.com/users/login', 
             newUser)
             .then(res => {
-                console.log("res data", res.data)
-                console.log("res", res)
                 const token = res.data.token
                 localStorage.setItem('token', token)
+                history.push('https://pintreachers-82npkwcbi.vercel.app/')
             })
             .catch(err => {
                 console.log(err)
                 setError(true)
             })
-            .finally = () => {
-                
-            }
     }
 
     return (
