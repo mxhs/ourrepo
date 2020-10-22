@@ -3,11 +3,11 @@ import axios from "axios";
 // get the token from localstorage
 export const axiosWithAuth = () => {
   let token = window.localStorage.getItem("token");
+  console.log(token);
   return axios.create({
     headers: {
       authorization: token
     }
-    // baseURL: "https://pintereach-backend-ajg.herokuapp.com/"
   });
 };
 
