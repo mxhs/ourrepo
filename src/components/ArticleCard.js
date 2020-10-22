@@ -3,7 +3,42 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { saveArticle } from '../store/actions/index';
 
+
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, rgba(236,233,246,0.7035189075630253) 15%, rgba(70,150,229,0.45) 90%)',
+    maxWidth: 345,
+    minHeight:550,
+    maxHeight: 550,
+    marginBottom:20,
+    padding:30,
+    boxShadow: '0 3px 5px 4px rgba(103, 128, 159, 1)',
+
+  },
+  media: {
+    height: 250,
+  },
+  action:{
+    background: 'linear-gradient(45deg, rgba(219,218,222,0.15) 14%, rgba(103,128,159,0.15) 70%)',
+    borderRadius: 12,
+    padding:1,
+    minHeight:550,
+  }
+});
+
+
 const ArticleCard = (props) => {
+  const classes = useStyles();
+
   const {
     title,
     author,
@@ -30,32 +65,35 @@ const ArticleCard = (props) => {
   };
 
   return (
-    <div>
-      {props.article ? (
-        <div className="article-card">
-          <Link key={id} to={`/articles/${id}`}>
-            <h1>{title}</h1>
-          </Link>
-
-          <h3>Author: {author}</h3>
-          <img className="image" src={image}></img>
-          <div className="summary">
-            <p>Summary: {summary}</p>
-          </div>
-          <div className="category">
-            <p>Category: {category}</p>
-          </div>
-          <div className="rank">
-            <p>Rank: {rank}</p>
-          </div>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
-      <button className="save-btn" onClick={onClick} >
-        Save
-      </button>
-    </div>
+    <div className="artcards">
+    <Card className={classes.root}>
+    <CardActionArea className={classes.action}>
+   <Typography gutterBottom variant="h4" component="h2">
+   {title}
+     </Typography>
+   <CardMedia
+     className={classes.media}
+     image={image}
+   />
+   <CardContent>
+     <Typography gutterBottom variant="h5" component="h2">
+     Author: {author}
+     </Typography>
+     <Typography variant="body2" color="textSecondary" component="p">
+     {summary}
+     </Typography> 
+     <Typography variant="h6" color="textSecondary" component="p">
+     Rank: {rank} 
+     <Button size="small" color="primary" onClick={onClick} >
+   Save
+   </Button>
+     </Typography>
+   </CardContent>
+ </CardActionArea>
+ <CardActions>
+   </CardActions>
+   </Card>
+   </div>
   );
 };
 
