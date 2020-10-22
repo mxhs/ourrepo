@@ -1,18 +1,20 @@
-import React from "react";
-import { useEffect, useState } from "react";
+
+import React,{ useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import axios from "axios";
+import { connect } from "react-redux";
+
 import IndividualArticle from "./components/IndividualArticle";
 import ArticleList from "./components/ArticleList";
+import {SignUpPage} from './components/SignUpPage'
+import LoginPage from './components/LoginPage'
 import Article from "./components/Article";
 import SavedList from "./components/SavedList";
-import {
-  fetchArticles,
-  rankArticle,
-  saveArticle,
-} from "../src/store/actions";
-import { connect } from "react-redux";
+
+import {  fetchArticles,  rankArticle,  saveArticle,} from "../src/store/actions";
+
+
 
 const App = (props) => {
   const { fetchArticles, rankArticle, saveArticle } = props;
@@ -23,9 +25,17 @@ const App = (props) => {
   }, []);
 
   return (
-    <Router>
+    
       <div className="App">
-        <Link exact path to="/">
+    
+      <Route path = '/signup'>
+        <SignUpPage />
+      </Route>
+      <Route exact path = '/'>
+        <LoginPage />
+      </Route>
+    
+        <Link exact path to="/articles">
           Articles
         </Link>
         <br></br>
@@ -46,8 +56,7 @@ const App = (props) => {
           <Article />
         </Route>
       </div>
-    </Router>
-  );
+      );
 };
 
 const mapStateToProps = (state) => {

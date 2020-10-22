@@ -6,9 +6,12 @@
     "axios": "^0.20.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-redux": "^7.2.1",
+
+    "react-hook-form": "^6.9.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "2.1.1",
+    "styled-components": "^5.2.0"
+    "react-redux": "^7.2.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   },
