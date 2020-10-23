@@ -66,35 +66,35 @@ function SavedList(props) {
       {savedArticles ? (
         savedArticles.map((article) => (
       <Card className={classes.root}>
-      <CardActionArea className={classes.action}>
-        <Typography gutterBottom variant="h4" component="h2">
-        {article.title}
-          </Typography>
-        <CardMedia
-          className={classes.media}
-          image={article.image}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-          Author: {article.author}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          {article.summary}
-          </Typography> 
-          <Typography variant="h6" color="textSecondary" component="p">
-          Rank: {article.rank}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary"  onClick={() => rankUp(article)} >
-        Rank +
-        </Button> <Button size="small" color="primary"  onClick={() => rankDown(article)} >
-        Rank -
-        </Button><Button size="small" color="primary"  onClick={() => deleteCard(article.id)} >
-        Delete
-        </Button>
-        </CardActions>
+        <CardActionArea className={classes.action}>
+            <Typography gutterBottom variant="h4" component="h2">
+            {article.title}
+            </Typography>
+            <CardMedia
+                className={classes.media}
+                image={article.image}
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                    Author: {article.author}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                    {article.summary}
+                </Typography> 
+                <Typography variant="h6" color="textSecondary" component="p">
+                    Rank: {article.rank}
+                </Typography>
+            </CardContent>
+        </CardActionArea>
+        <CardActions>
+            <Button size="small" color="primary"  onClick={() => rankUp(article)} >
+            Rank +
+            </Button> <Button size="small" color="primary"  onClick={() => rankDown(article)} >
+            Rank -
+            </Button><Button size="small" color="primary"  onClick={() => deleteCard(article.id)} >
+            Delete
+            </Button>
+            </CardActions>
         </Card>
            
         ))

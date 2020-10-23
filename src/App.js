@@ -57,8 +57,7 @@ const App = (props) => {
           <Route path = '/signup'>
             <SignUpPage />
           </Route>
-        </div>
-        
+        </div>   
         <div>
           <Route exact path="/saved-articles/">
             <SavedList savedList={props.savedArticles}/>
@@ -70,13 +69,16 @@ const App = (props) => {
                   <Typography variant="h6" className={classes.title}>
                       Pinterest
                   </Typography>
-                    <Button color="inherit"> <Link className="link" exact path to="/">
-                    Articles
-                    </Link></Button>
-                    <Button color="inherit">
+                  <Button color="inherit"> 
+                    <Link className="link" exact path to="/">
+                      Articles
+                    </Link>
+                  </Button>
+                  <Button color="inherit">
                     <Link className="link" exact path to="/saved-articles/">
-                    Saved Articles
-                  </Link></Button>
+                      Saved Articles
+                    </Link>
+                  </Button>
                 </Toolbar>
               </AppBar>
             </div>
