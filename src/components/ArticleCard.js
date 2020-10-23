@@ -62,34 +62,34 @@ const ArticleCard = (props) => {
 
   return (
     <div className="artcards">
-    <Card className={classes.root}>
-    <CardActionArea className={classes.action}>
-   <Typography gutterBottom variant="h4" component="h2">
-   {title}
-     </Typography>
-   <CardMedia
-     className={classes.media}
-     image={image}
-   />
-   <CardContent>
-     <Typography gutterBottom variant="h5" component="h2">
-     Author: {author}
-     </Typography>
-     <Typography variant="body2" color="textSecondary" component="p">
-     {summary}
-     </Typography> 
-     <Typography variant="h6" color="textSecondary" component="p">
-     Rank: {rank}
-     </Typography>
-   </CardContent>
- </CardActionArea>
- <CardActions>
-  <Button size="small" color="primary" onClick={onClick} >
-   Save
-   </Button>
-   </CardActions>
-   </Card>
-   </div>
+      <Card className={classes.root}>
+          <CardActionArea className={classes.action}>
+            <Typography gutterBottom variant="h4" component="h2">
+              {title}
+            </Typography>
+            <CardMedia
+              className={classes.media}
+              image={image}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="h2">
+                Author: {author}
+              </Typography>
+              <Typography variant="body2" color="textSecondary" component="p">
+                {summary}
+              </Typography> 
+              <Typography variant="h6" color="textSecondary" component="p">
+                Rank: {rank}
+              </Typography>
+            </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary" onClick={onClick} >
+            Save
+          </Button>
+        </CardActions>
+      </Card>
+    </div>
   );
 };
 
