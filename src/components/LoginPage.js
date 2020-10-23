@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import axios from 'axios'
 import {Link, useHistory, Redirect} from 'react-router-dom'
 import {useForm} from 'react-hook-form'
+
 import {StyledSignUp} from './styles/StyledSignUp'
 
 const LoginPage = () => {

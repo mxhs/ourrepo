@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
 import {Route} from 'react-router-dom';
 
+import './App.css';
 import {SignUpPage} from './components/SignUpPage'
 import LoginPage from './components/LoginPage'
 
