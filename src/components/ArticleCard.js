@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { saveArticle } from '../store/actions/index';
-
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -102,3 +101,4 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   saveArticle,
 })(ArticleCard);
+

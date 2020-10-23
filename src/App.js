@@ -58,6 +58,7 @@ const App = (props) => {
             <SignUpPage />
           </Route>
         </div>   
+
         <div>
           <Route exact path="/saved-articles/">
             <SavedList savedList={props.savedArticles}/>
@@ -90,20 +91,16 @@ const App = (props) => {
           </Route>
         </div>
       </div>
-    
   );
 };
-
 const mapStateToProps = (state) => {
   return {
     articles: state.articles,
     savedArticles: state.savedArticles,
   };
 };
-
 export default connect(mapStateToProps, {
   fetchArticles,
   rankArticle,
   saveArticle,
 })(App);
-

@@ -96,18 +96,13 @@ function SavedList(props) {
             </Button>
             </CardActions>
         </Card>
-           
         ))
       ) : (
         <p>Loading...</p>
       )}
-      
-
-    </div>
+      </div>
   );
 }
-
-
 
 const mapStateToProps = (state) => {
   return {
