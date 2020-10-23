@@ -17,7 +17,7 @@ function App() {
       </Route>
       <Route path = '/success' 
         render = {() => (
-          window.location = "https://pintreachers-git-article-card.pintereachers.vercel.app/"
+          window.location = "https://pintreachers.pintereachers.vercel.app/"
         )}
       >
       </Route>
