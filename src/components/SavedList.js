@@ -16,20 +16,19 @@ const useStyles = makeStyles({
   root: {
     background: 'linear-gradient(45deg, rgba(236,200,246,0.60) 15%, rgba(70,110,229,0.45) 70%)',
     maxWidth: 345,
-    minHeight:550,
-    maxHeight: 550,
+    minHeight:450,
+    maxHeight: 450,
     marginBottom:20,
-    padding:30,
+    padding:50,
     boxShadow: '0 3px 5px 4px rgba(103, 128, 159, 1)'
   },
   media: {
-    height: 250,
+    height: 140,
   },
   action:{
     background: 'linear-gradient(45deg, rgba(219,218,222,0.15) 14%, rgba(103,128,159,0.15) 70%)',
     borderRadius: 12,
-    padding:1,
-    minHeight:550,
+    padding:1
   }
 });
 
@@ -84,19 +83,17 @@ function SavedList(props) {
           </Typography> 
           <Typography variant="h6" color="textSecondary" component="p">
           Rank: {article.rank}
-          <div className='btn'>
-          <Button size="large" variant='outlined' color="primary"  onClick={() => rankUp(article)} >
-        Rank +
-        </Button> <Button size="large" variant='outlined' color="primary"  onClick={() => rankDown(article)} >
-        Rank -
-        </Button><Button size="large" variant='outlined' color="primary"  onClick={() => deleteCard(article.id)} >
-        Delete
-        </Button>
-        </div>
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
+        <Button size="small" color="primary"  onClick={() => rankUp(article)} >
+        Rank +
+        </Button> <Button size="small" color="primary"  onClick={() => rankDown(article)} >
+        Rank -
+        </Button><Button size="small" color="primary"  onClick={() => deleteCard(article.id)} >
+        Delete
+        </Button>
         </CardActions>
         </Card>
            
@@ -122,3 +119,41 @@ export default connect(mapStateToProps, {
   rankArticle,
   deleteArticle,
 })(SavedList);
+
+/* <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+            across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary" onClick={() => rankUp(article)}>
+        Rank +
+        </Button>
+        <Button size="small" color="primary">
+          Learn More */
+        /* </Button> */
+        /* <button className="rank+-btn" onClick={() => rankUp(article)}> 
+            Rank +
+            </button> 
+            <button className="rank--btn" onClick={() => rankDwn(article)}> 
+            Rank -
+            </button>
+            <button className="delete-btn" onClick={() => onClick(article.id)}> 
+            Delete
+            </button> */
+
+
+      /* </CardActions>
+    </Card> */

@@ -17,21 +17,20 @@ const useStyles = makeStyles({
   root: {
     background: 'linear-gradient(45deg, rgba(236,233,246,0.7035189075630253) 15%, rgba(70,150,229,0.45) 90%)',
     maxWidth: 345,
-    minHeight:550,
-    maxHeight: 550,
+    minHeight:450,
+    maxHeight: 450,
     marginBottom:20,
-    padding:30,
+    padding:50,
     boxShadow: '0 3px 5px 4px rgba(103, 128, 159, 1)',
 
   },
   media: {
-    height: 250,
+    height: 140,
   },
   action:{
     background: 'linear-gradient(45deg, rgba(219,218,222,0.15) 14%, rgba(103,128,159,0.15) 70%)',
     borderRadius: 12,
-    padding:1,
-    minHeight:550,
+    padding:1
   }
 });
 
@@ -83,14 +82,14 @@ const ArticleCard = (props) => {
      {summary}
      </Typography> 
      <Typography variant="h6" color="textSecondary" component="p">
-     Rank: {rank} 
-     <Button size="small" color="primary" onClick={onClick} >
-   Save
-   </Button>
+     Rank: {rank}
      </Typography>
    </CardContent>
  </CardActionArea>
  <CardActions>
+  <Button size="small" color="primary" onClick={onClick} >
+   Save
+   </Button>
    </CardActions>
    </Card>
    </div>
