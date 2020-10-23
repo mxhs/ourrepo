@@ -3,13 +3,8 @@
 
   text-decoration: none;
 }
-
 .articlecards{
   display: flex;
   justify-content: space-evenly;
   flex-flow: row wrap;
 }
-
-
-
-

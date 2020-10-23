@@ -19,3 +19,75 @@ To get started with React, along with [Serverless Functions](https://vercel.com/
 ```shell
 $ npx create-react-app my-app
 ```
+
+
+
+<!-- <div className="article-card">
+            <h1>{article.title}</h1>
+            <h3>Author: {article.author}</h3>
+            <img className="image" src={article.image}></img>
+            <div className="summary">
+              <p>Summary: {article.summary}</p>
+            </div>
+            <div className="category">
+              <p>Category: {article.category}</p>
+            </div>
+            <div className="rank">
+              <p>Rank: {article.rank}</p>
+            </div>
+            <div>
+            </div>
+            </div> -->
+
+  <!-- <button className="rank+-btn" onClick={() => rankUp(article)}> 
+            Rank +
+            </button> 
+            <button className="rank--btn" onClick={() => rankDwn(article)}> 
+            Rank -
+            </button>
+            <button className="delete-btn" onClick={() => onClick(article.id)}> 
+            Delete
+            </button>
+            </div>
+        </div> -->
+
+
+
+
+<!-- 
+        /* <Link key={id} to={`/articles/${id}`}>
+            <h1>{title}</h1>
+          </Link> */ -->
+
+<!-- 
+            <!-- {props.article ? (
+        <div className="article-card">
+          
+
+          <h3>Author: {author}</h3>
+          <img className="image" src={image}></img>
+          <div className="summary">
+            <p>Summary: {summary}</p>
+          </div>
+          <div className="category">
+            <p>Category: {category}</p>
+          </div>
+          <div className="rank">
+            <p>Rank: {rank}</p>
+          </div>
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+      <button className="save-btn" onClick={onClick} >
+        Save
+      </button> --> -->
+
+<!-- 
+       <Link exact path to="/">
+          Articles
+        </Link>
+        <br></br>
+        <Link exact path to="/saved-articles/">
+          Saved Articles
+        </Link> -->

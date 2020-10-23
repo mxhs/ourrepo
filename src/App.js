@@ -57,7 +57,11 @@ const App = (props) => {
           <Route path = '/signup'>
             <SignUpPage />
           </Route>
+
         </div>   
+
+  
+
         <div>
           <Route exact path="/saved-articles/">
             <SavedList savedList={props.savedArticles}/>
@@ -69,12 +73,14 @@ const App = (props) => {
                   <Typography variant="h6" className={classes.title}>
                       Pinterest
                   </Typography>
+
                   <Button color="inherit"> 
                     <Link className="link" exact path to="/">
                       Articles
                     </Link>
                   </Button>
                   <Button color="inherit">
+
                     <Link className="link" exact path to="/saved-articles/">
                       Saved Articles
                     </Link>
@@ -90,20 +96,16 @@ const App = (props) => {
           </Route>
         </div>
       </div>
-    
   );
 };
-
 const mapStateToProps = (state) => {
   return {
     articles: state.articles,
     savedArticles: state.savedArticles,
   };
 };
-
 export default connect(mapStateToProps, {
   fetchArticles,
   rankArticle,
   saveArticle,
 })(App);
-

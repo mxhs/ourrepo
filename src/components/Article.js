@@ -13,11 +13,9 @@ function Article({ addToSavedList }) {
       .then((res) => setArticle(res.data))
       .catch((err) => console.log("ERROR: fetchArticle", err.response));
   };
-
   const editArticle = () => {
     history.push(`/update-article/${params.id}`);
   };
-
   useEffect(() => {
     fetchArticle(params.id);
   }, [params.id]);
@@ -27,5 +25,5 @@ function Article({ addToSavedList }) {
     </div>
   );
 }
-
 export default Article;
+
