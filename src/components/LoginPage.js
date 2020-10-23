@@ -66,6 +66,7 @@ const LoginPage = () => {
                     />
                     {errors.password && <p className='errorMessage'>*Password must be a minimum of 6 characters</p>}                
                     <input 
+                        className='submitButton'
                         type="submit" 
                         value="Sign In" 
                         disabled={!formState.isValid}
